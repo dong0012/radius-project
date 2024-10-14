@@ -11,7 +11,7 @@ export default function DefaultLayout({
 }) {
   return (
     <div className="relative flex flex-col h-screen">
-      <Head />
+      {/* <Head /> */}
       <Header />
       <main className="dark text-foreground bg-background">
         {children}
