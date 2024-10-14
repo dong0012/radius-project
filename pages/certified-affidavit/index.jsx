@@ -1,13 +1,4 @@
-import { Link } from "@nextui-org/link";
-import { Snippet } from "@nextui-org/snippet";
-import { Code } from "@nextui-org/code";
-import { button as buttonStyles } from "@nextui-org/theme";
-
-import { siteConfig } from "@/config/site";
-import { title, subtitle } from "@/components/primitives";
-import { GithubIcon } from "@/components/icons";
 import DefaultLayout from "@/layouts/default";
-import { Card, CardHeader, CardBody, CardFooter, Divider, Button } from "@nextui-org/react";
 import FirstContent from '../../components/home-page/first-content'
 import SecondContent from '../../components/home-page/second-content'
 import ThirdContent from '../../components/home-page/third-content'

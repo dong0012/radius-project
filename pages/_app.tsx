@@ -9,10 +9,12 @@ import "@/styles/globals.css";
 
 export default function App({ Component, pageProps }: AppProps) {
   const router = useRouter();
+  console.log(Component); 
 
   return (
     <NextUIProvider navigate={router.push} className="dark text-foreground bg-background">
       <NextThemesProvider>
+        {/* 这里渲染的是每个页面的组件 */}
         <Component {...pageProps} />
       </NextThemesProvider>
     </NextUIProvider>

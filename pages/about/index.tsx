@@ -3,7 +3,7 @@ import DefaultLayout from "@/layouts/default";
 import AboutFirstContent from '../../components/about-page/about-first-content'
 import FirstContent from '../../components/home-page/first-content'
 
-export default function DocsPage() {
+export default function About() {
   const content = {
     title:'Unparalleled Notification Services in California',
     content:'We pride ourselves as one of only a few operating businesses in California who provide quality notification services for a large range of clientele ranging from wireless telecommunication companies, architectural firms, land surveyors, law firms, civil engineers, government agencies, real estate developers, property owners, homebuilders and more all over Southern & Northern California L.A. Mapping Service, Inc is devoted to providing affordable, professional and certified expedited services. We are committed to the highest level of quality and satisfaction.',

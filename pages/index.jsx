@@ -1,13 +1,5 @@
-import { Link } from "@nextui-org/link";
-import { Snippet } from "@nextui-org/snippet";
-import { Code } from "@nextui-org/code";
-import { button as buttonStyles } from "@nextui-org/theme";
 
-import { siteConfig } from "@/config/site";
-import { title, subtitle } from "@/components/primitives";
-import { GithubIcon } from "@/components/icons";
 import DefaultLayout from "@/layouts/default";
-import { Card, CardHeader, CardBody, CardFooter, Divider, Button } from "@nextui-org/react";
 import FirstContent from '../components/home-page/first-content'
 import SecondContent from '../components/home-page/second-content'
 import ThirdContent from '../components/home-page/third-content'
@@ -18,19 +10,39 @@ import Center from '../components/home-page/center'
 import AccordionComponent from '../components/accordion'
 import ServiceContent from '../components/service-content'
 
-export default function IndexPage() {
+const IndexPage = ({ content, centerContent, question_content, list_content })=> {
+  return (
+    <DefaultLayout>
+      <FirstContent content={content}></FirstContent>
+      <div className="w-full h-[20px]"></div>
+      <div className="p-10">
+      <ForthContent></ForthContent>
+      </div>
+      <ServiceContent></ServiceContent>
+      <FifthContent></FifthContent>
+      <FirstContent content={centerContent}></FirstContent>
+      <SixContent listContent={list_content}></SixContent>
+      <AccordionComponent content={question_content}></AccordionComponent>
+    </DefaultLayout>
+  );
+}
+
+// 使用 getStaticProps 获取静态数据
+export async function getStaticProps() {
   const content = {
     title:'Comprehensive Compliance and Mapping Solutions: Your One-Stop Service Hub',
     content:'Navigating Legal Requirements with Precision and Ease - From Radius Mapping to Notary Services',
     detail:'Begin Your Compliance Journey with Us - Get Started Now!',
     pic:'/images/background.jpg'
 }
+
 const centerContent ={
   title:'Providing mapping services for all Cities and Counties in California',
     content:'We provide mapping services for all cities in all counties throughout the entire state of California.',
     detail:'List of cities & counties in California we provide services for:',
     pic:'/images/home/second-pic.jpg'
 }
+
 const list_content ={
   left:[
     "Conditional Use Permit (CUP)",
@@ -66,6 +78,7 @@ const list_content ={
     "Environmental Impact Report"
   ]
 }
+
 const question_content =[
   {
     question:'Why is LA Mapping Service so popular?',
@@ -102,27 +115,15 @@ const question_content =[
 
 ]
 
-  return (
-    <DefaultLayout>
-      <FirstContent content={content}></FirstContent>
-      <div className="w-full h-[20px]"></div>
-      {/* <SecondContent></SecondContent> */}
-      {/* <div className="w-full h-[20px]"></div> */}
-      {/* <ThirdContent></ThirdContent> */}
-      {/* <div className="w-full h-[20px]"></div> */}
-      <div className="p-10">
-      <ForthContent></ForthContent>
-
-      </div>
-      <ServiceContent></ServiceContent>
-      <FifthContent></FifthContent>
-      {/* <Center centerContent ={centerContent}></Center> */}
-      <FirstContent content={centerContent}></FirstContent>
-
-      <SixContent listContent={list_content}></SixContent>
-      <AccordionComponent content={question_content}></AccordionComponent>
-
-
-    </DefaultLayout>
-  );
+  return {
+    props: {
+      content,
+      centerContent,
+      question_content,
+      list_content,
+    },
+  };
 }
+
+export default IndexPage;
+
