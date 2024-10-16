@@ -30,7 +30,7 @@
     "**/*.tsx",
     "components/icons.jsx",
     "components/theme-switch.jsx"
-, "pages/index.jsx"  ],
+, "pages/index.jsx", "components/navbar.jsx"  ],
   "exclude": [
     "node_modules"
   ]

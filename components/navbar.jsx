@@ -1,24 +1,25 @@
-import { Navbar, NavbarBrand, NavbarMenuToggle, NavbarMenu, NavbarMenuItem, NavbarContent, NavbarItem, Link, Button, DropdownItem, Dropdown, DropdownTrigger, DropdownMenu } from "@nextui-org/react";
+import { Navbar, NavbarBrand, NavbarMenuToggle, NavbarMenu, NavbarMenuItem, NavbarContent, NavbarItem, Link, Button, DropdownItem, Dropdown, DropdownTrigger, DropdownMenu }
+  from "@nextui-org/react";
 import { AcmeLogo } from "./acmeLogo";
 import { siteConfig } from '../config/site'
 import { ChevronDown } from './icons'
-import NextLink from 'next/link';
+import { useRouter } from 'next/router'
 
 const menuItems = [
-  "Profile",
-  "Dashboard",
-  "Activity",
-  "Analytics",
-  "System",
-  "Deployments",
-  "My Settings",
-  "Team Settings",
-  "Help & Feedback",
-  "Log Out",
+  "/radius-mapping",
+  "/property-ownership",
+  "/certified-affidavit",
+  "/public-notice",
+  "/public-hearing",
+  "/notary-document",
+  "/telecommunications",
 ];
 
 
+
+
 export const Header = () => {
+  const router = useRouter();
 
   return (
     <Navbar disableAnimation isBordered>
@@ -40,7 +41,7 @@ export const Header = () => {
         {
           siteConfig.navItems.map((item, index) => (
             <NavbarItem key={index}>
-              <Link color="foreground" href={item.href} >
+              <Link color="foreground" href={item.href}  >
                 {item.label}
               </Link>
             </NavbarItem>
@@ -49,13 +50,14 @@ export const Header = () => {
         <Dropdown>
           <NavbarItem>
             <DropdownTrigger>
-              <Button
+              <Link
                 disableRipple
                 endContent={<ChevronDown fill="currentColor" size={16} />}
                 variant="light"
+                color={menuItems.includes(router.pathname) ? '' : 'foreground'}
               >
-                SERVICES
-              </Button>
+                SERVICES<ChevronDown fill="currentColor" size={16} />
+              </Link>
             </DropdownTrigger>
           </NavbarItem>
           <DropdownMenu
@@ -69,8 +71,11 @@ export const Header = () => {
               siteConfig.navMenuItems.map((item, index) => (
                 <DropdownItem
                   key={item.label}
+                  onClick={() => router.push(item.href)} // 点击整个 DropdownItem 触发导航
+                  className={`cursor-pointer ${router.pathname === item.href ? 'bg-blue-500 text-white' : ''}`}
+
                 >
-                  <Link href={item.href}>{item.label}</Link>
+                  {item.label}
                 </DropdownItem>
               ))
             }
@@ -83,41 +88,45 @@ export const Header = () => {
             <Link
               className="w-full"
               color={
-                index === 2 ? "warning" : index === menuItems.length - 1 ? "danger" : "foreground"
+                router.pathname === item.href
+                  ? "" // 当前页面时使用 foreground 颜色
+                  : 'foreground'
               }
               href={item.href}
               size="lg"
             >
               {item.label}
             </Link>
-           
+
           </NavbarMenuItem>
         ))}
-          <NavbarMenuItem>
-            <Dropdown >
-                 <DropdownTrigger>
-                  
-                 <Link color="foreground" size="lg" 
-                 className="mr-2">
-                 SERVICE  <ChevronDown fill="currentColor" size={16} />
-               </Link>
-                 </DropdownTrigger>
-                 <DropdownMenu
-                   aria-label="Services"
-                   className="w-[340px]"
-                   itemClasses={{
-                     base: "gap-4",
-                   }}
-                 >
-                   {siteConfig.navMenuItems.map((subItem) => (
-                     <DropdownItem key={subItem.label}>
-                       <Link href={subItem.href}>{subItem.label}</Link>
-                     </DropdownItem>
-                   ))}
-                 </DropdownMenu>
-               </Dropdown>
-          </NavbarMenuItem>
-
+        <NavbarMenuItem>
+          <Dropdown >
+            <DropdownTrigger>
+              <Link size="lg"
+                color={menuItems.includes(router.pathname) ? '' : 'foreground'}
+                className="mr-2">
+                SERVICES  <ChevronDown fill="currentColor" size={16} />
+              </Link>
+            </DropdownTrigger>
+            <DropdownMenu
+              className="w-[300px]"
+              variant="flat"
+            >
+              {
+                siteConfig.navMenuItems.map((item, index) => (
+                  <DropdownItem
+                    key={item.label}
+                    onClick={() => router.push(item.href)} // 点击整个 DropdownItem 触发导航
+                    className={`cursor-pointer ${router.pathname === item.href ? 'bg-blue-500 text-white' : ''}`}
+                  >
+                    {item.label}
+                  </DropdownItem>
+                ))
+              }
+            </DropdownMenu>
+          </Dropdown>
+        </NavbarMenuItem>
       </NavbarMenu>
     </Navbar>
   );
