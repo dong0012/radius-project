@@ -51,7 +51,7 @@ export default function DefaultLayout({
               <div>Radius Map 4 Less,Inc</div>
               <div>1073 Kendall Drive</div>
               <div>San Gabriel,CA 91775</div>
-              <div>626-383-5050</div>
+              <div>626-386-8086</div>
               <div>support@radiusmap4less.com</div>
             </div>
           </div>

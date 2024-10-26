@@ -23,11 +23,11 @@ export default function FirstContent({ content }) {
       <p className="text-sm md:text-base">{content.content}</p>
       <p className="pt-6 text-sm md:text-base">{content.detail}</p>
       <div className="pt-10">
-      <a href="tel:626-383-5050" style={{ textDecoration: 'none', display: 'flex', alignItems: 'center' }}>
+      <a href="tel:626-386-8086" style={{ textDecoration: 'none', display: 'flex', alignItems: 'center' }}>
   <div style={{ backgroundColor: 'white', padding: '5px', borderRadius: '50%', display: 'flex', justifyContent: 'center', alignItems: 'center' }}>
   <img src="/images/icon/telephone.svg" alt="telephone" style={{ width: '24px', height: '24px' }} />
   </div>
-  <span style={{ marginLeft: '10px' }}>626-383-5050</span>
+  <span style={{ marginLeft: '10px' }}>626-386-8086</span>
 </a>
       </div>
      

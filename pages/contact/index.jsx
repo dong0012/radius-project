@@ -70,7 +70,7 @@ export default function Contact() {
             </div>
 
             <div className="w-full sm:w-80 bg-[#557b9a] rounded-md flex flex-col items-center text-white font-bold p-8 min-h-[150px]">
-            <a href="tel:626-383-5050" >
+            <a href="tel:626-386-8086" >
 
               <div style={{ backgroundColor: '#222121', padding: '15px', alignItems: 'center' }}>
                 <img src="/images/icon/telephone-fill.svg" alt="telephone" style={{ width: '32px', height: '32px' }} />
@@ -78,9 +78,9 @@ export default function Contact() {
               </a>
 
               <h1 className="text-xl mb-2 text-center py-5">Give Us A Call</h1>
-              <a href="tel:626-383-5050" style={{ textDecoration: 'none', display: 'flex', alignItems: 'center' }}>
+              <a href="tel:626-386-8086" style={{ textDecoration: 'none', display: 'flex', alignItems: 'center' }}>
                 <div className="text-base" style={{ color: '#A4A4A4' }}>
-                  (909) 595-0903
+                  (626) 386-8086
                 </div>
               </a>
 

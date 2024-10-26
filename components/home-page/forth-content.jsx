@@ -74,22 +74,18 @@ export default function SecondContent() {
           <div className="w-1/2 pr-4">
             <ul className="list-disc list-inside">
               <li className="pb-3">New Business</li>
-              <li className="pb-3">Wireless Telecommunications</li>
               <li className="pb-3">Permit Expediters</li>
               <li className="pb-3">Engineers</li>
               <li className="pb-3">Land Surveyors</li>
               <li className="pb-3">Land Developers</li>
               <li className="pb-3">City Planners</li>
               <li className="pb-3">Architects</li>
-              <li className="pb-3">AQMD - Air Quality</li>
               <li>Management District</li>
             </ul>
           </div>
           <div className="w-1/2">
             <ul className="list-disc list-inside">
-              <li className="pb-3">Community Development</li>
-              <li className="pb-3">Departments</li>
-              <li className="pb-3">Permit Expediters</li>
+              <li className="pb-3">Community Development Departments</li>
               <li className="pb-3">Public Works</li>
               <li className="pb-3">Government Agencies</li>
               <li className="pb-3">Alcohol Beverage Control</li>
